@@ -11,6 +11,6 @@ nim c -r 2021/day01/a.nim
 # To build a optimized binary
 
 ```fish
-nim compile --opt:speed -d:release 2021/day0a/a.nim
-time ./2021/day0a/a
+nim compile --opt:speed -d:release 2021/day08/b.nim
+time ./2021/day08/b
 ```

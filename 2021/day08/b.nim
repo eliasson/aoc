@@ -1,4 +1,4 @@
-import std / [sequtils, strutils, tables, algorithm, sets]
+import std / [sequtils, strutils, tables, sets]
 
 var
     lights = readFile("2021/day08/input.txt").strip().split("\n").toSeq
@@ -37,10 +37,7 @@ for light in lights:
         IAMSPECIAL = patterns["4"] - patterns["7"] # Emoji style!
 
     for value in input[1].splitWhitespace():
-        var
-            sortedValue = value
-            characters = toHashSet(value.mapIt(it))
-        sortedValue.sort()
+        var characters = toHashSet(value.mapIt(it))
 
         case value.len
         of 2:
