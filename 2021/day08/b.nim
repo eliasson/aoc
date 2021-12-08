@@ -5,7 +5,7 @@ var
     answer = 0
 
 # Maps the known digits to their set of characters
-proc knownPatters(signals: string): Table[string, HashSet[char]] =
+proc knownPatterns(signals: string): Table[string, HashSet[char]] =
     for signal in signals.splitWhitespace:
         var characters = toHashSet(signal.mapIt(it))
 
@@ -33,7 +33,7 @@ for light in lights:
         input = light.split("|")
         signal = input[0]
         sumAsString = ""
-        patterns: Table[string, HashSet[char]]  = knownPatters(signal)
+        patterns: Table[string, HashSet[char]]  = knownPatterns(signal)
         IAMSPECIAL = patterns["4"] - patterns["7"] # Emoji style!
 
     for value in input[1].splitWhitespace():
@@ -71,4 +71,4 @@ for light in lights:
     if sumAsString.len > 0:
         answer.inc parseInt(sumAsString)
 
-echo "\nAnswer: ", answer
+echo "Answer: ", answer
