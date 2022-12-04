@@ -13,19 +13,19 @@ proc unique(values: seq[string]): char =
             seen.inc(c)
     result = seen.largest[0]
 
+iterator take(data: seq[string], quantity: int): seq[string] =
+    var index = 0
+    var q = quantity - 1
+    while (index + q) < data.len:
+        yield data[index..(index + q)]
+        index += quantity
+
 var
     data = lines("2022/day03/input").toSeq
     score = buildScoreTable()
     total = 0
 
-iterator groups(): seq[string] =
-    var index = 0
-
-    while (index + 2) < data.len:
-        yield data[index..(index+2)]
-        index += 3
-
-for grp in groups():
+for grp in data.take(3):
     let mgn = unique(grp) 
     total += score[mgn]
 
